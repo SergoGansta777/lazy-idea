@@ -31,3 +31,20 @@ nmap <leader>cl <Action>(FileStructurePopup)
 
 let g:WhichKeyDesc_code_complete = "<leader>cc Complete Statement"
 nmap <leader>cc <Action>(EditorCompleteStatement)
+
+let g:WhichKeyDesc_extract_method = "<leader>ce Extract Method"
+nmap <leader>ce <Action>(ExtractMethod)
+vmap <leader>ce <Action>(ExtractMethod)
+
+let g:WhichKeyDesc_inline = "<leader>ci Inline"
+nmap <leader>ci <Action>(Inline)
+
+let g:WhichKeyDesc_move = "<leader>cm Move"
+nmap <leader>cm <Action>(Move)
+
+let g:WhichKeyDesc_introduce_variable = "<leader>cv Introduce Variable"
+nmap <leader>cv <Action>(IntroduceVariable)
+vmap <leader>cv <Action>(IntroduceVariable)
+
+let g:WhichKeyDesc_safe_delete = "<leader>cx Safe Delete"
+nmap <leader>cx <Action>(SafeDelete)

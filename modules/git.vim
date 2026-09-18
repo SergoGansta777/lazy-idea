@@ -38,3 +38,15 @@ nmap <leader>gs <Action>(ActivateCommitToolWindow)
 
 let g:WhichKeyDesc_git_explorer = "<leader>ge Version Control Tool Window"
 nmap <leader>ge <Action>(ActivateVersionControlToolWindow)
+
+let g:WhichKeyDesc_git_branches = "<leader>gG Git Branches"
+nmap <leader>gG <Action>(Git.Branches)
+
+let g:WhichKeyDesc_git_commit = "<leader>gC Commit Changes"
+nmap <leader>gC <Action>(CheckinProject)
+
+let g:WhichKeyDesc_git_push = "<leader>gp Push"
+nmap <leader>gp <Action>(Vcs.Push)
+
+let g:WhichKeyDesc_git_update = "<leader>gu Update Project"
+nmap <leader>gu <Action>(Vcs.UpdateProject)

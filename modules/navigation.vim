@@ -96,6 +96,12 @@ nmap ]h <Action>(VcsShowNextChangeMarker)
 let g:WhichKeyDesc_hunk_prev = "[h Previous Change"
 nmap [h <Action>(VcsShowPrevChangeMarker)
 
+let g:WhichKeyDesc_method_next = "]m Next Method"
+nmap ]m <Action>(MethodDown)
+
+let g:WhichKeyDesc_method_prev = "[m Previous Method"
+nmap [m <Action>(MethodUp)
+
 let g:WhichKeyDesc_todo_prev = "[t Previous Todo Comment"
 nmap [t ?\(TODO\|FIX\|HACK\|WARN\|PERF\|NOTE\|TEST\):<cr>
 

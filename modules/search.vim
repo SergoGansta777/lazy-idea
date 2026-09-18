@@ -14,6 +14,9 @@ nmap <leader>sc :history<cr>
 let g:WhichKeyDesc_search_commands = "<leader>sC Find Action"
 nmap <leader>sC <Action>(GotoAction)
 
+let g:WhichKeyDesc_search_everywhere = "<leader>se Search Everywhere"
+nmap <leader>se <Action>(SearchEverywhere)
+
 let g:WhichKeyDesc_search_diagnostics = "<leader>sd Problems"
 nmap <leader>sd <Action>(ActivateProblemsViewToolWindow)
 
