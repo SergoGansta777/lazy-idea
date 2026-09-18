@@ -7,7 +7,7 @@
 " through IdeaVim, making it feel like home for LazyVim users.
 "
 " Installation:
-"   git clone https://github.com/cufarvid/lazy-idea.git ~/.lazy-idea
+"   git clone https://github.com/cufarvid/lazy-idea.git ~/.config/lazy-idea
 "
 " To track Action-IDs:
 "   :action VimFindActionIdAction
@@ -17,50 +17,50 @@
 " ========================================
 
 " Core settings (leader keys, visual settings, Neovim compatibility)
-source ~/.lazy-idea/modules/settings.vim
+source ~/.config/lazy-idea/modules/settings.vim
 
-" Plugin configurations (commentary, surround, easymotion, which-key, text objects)
-source ~/.lazy-idea/modules/plugins.vim
+" Plugin configurations (commentary, surround, sneak, which-key, text objects)
+source ~/.config/lazy-idea/modules/plugins.vim
 
 " Non-leader navigation keymaps (<C-hjkl>, [d, ]d, etc.)
-source ~/.lazy-idea/modules/navigation.vim
+source ~/.config/lazy-idea/modules/navigation.vim
 
 " LSP keymaps (gd, gr, gI, etc.)
-source ~/.lazy-idea/modules/lsp.vim
+source ~/.config/lazy-idea/modules/lsp.vim
 
 " Leader key groups (organized by WhichKey groups)
 let g:WhichKeyDesc_leader_b = "<leader>b +buffer"
-source ~/.lazy-idea/modules/buffer.vim
+source ~/.config/lazy-idea/modules/buffer.vim
 
 let g:WhichKeyDesc_leader_c = "<leader>c +code"
-source ~/.lazy-idea/modules/code.vim
+source ~/.config/lazy-idea/modules/code.vim
 
 let g:WhichKeyDesc_leader_d = "<leader>d +debug"
-source ~/.lazy-idea/modules/debug.vim
+source ~/.config/lazy-idea/modules/debug.vim
 
 let g:WhichKeyDesc_leader_f = "<leader>f +file/find"
-source ~/.lazy-idea/modules/file.vim
+source ~/.config/lazy-idea/modules/file.vim
 
 let g:WhichKeyDesc_leader_g = "<leader>g +git"
-source ~/.lazy-idea/modules/git.vim
+source ~/.config/lazy-idea/modules/git.vim
 
 let g:WhichKeyDesc_leader_s = "<leader>s +search"
-source ~/.lazy-idea/modules/search.vim
+source ~/.config/lazy-idea/modules/search.vim
 
 let g:WhichKeyDesc_leader_t = "<leader>t +test"
-source ~/.lazy-idea/modules/test.vim
+source ~/.config/lazy-idea/modules/test.vim
 
 let g:WhichKeyDesc_leader_u = "<leader>u +ui"
-source ~/.lazy-idea/modules/ui.vim
+source ~/.config/lazy-idea/modules/ui.vim
 
 let g:WhichKeyDesc_leader_w = "<leader>w +windows"
-source ~/.lazy-idea/modules/window.vim
+source ~/.config/lazy-idea/modules/window.vim
 
 let g:WhichKeyDesc_leader_x = "<leader>x +diagnostics/quickfix"
-source ~/.lazy-idea/modules/diagnostics.vim
+source ~/.config/lazy-idea/modules/diagnostics.vim
 
 let g:WhichKeyDesc_leader_tab = "<leader><tab> +tabs"
-source ~/.lazy-idea/modules/tabs.vim
+source ~/.config/lazy-idea/modules/tabs.vim
 
 " Neovim defaults, smart selection, and misc keymaps
-source ~/.lazy-idea/modules/defaults.vim
+source ~/.config/lazy-idea/modules/defaults.vim

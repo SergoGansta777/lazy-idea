@@ -1,0 +1,10 @@
+{
+  "settings": {
+    "delay": 450,
+    "maxColumns": 5,
+    "maxRows": 7,
+    "sortGroupsFirst": true,
+    "position": "bottom-right",
+    "showIcons": true
+  }
+}

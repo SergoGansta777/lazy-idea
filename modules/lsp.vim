@@ -19,7 +19,10 @@ let g:WhichKeyDesc_goto_type = "gy Goto T[y]pe Definition"
 nmap gy <Action>(GotoTypeDeclaration)
 
 let g:WhichKeyDesc_goto_declaration = "gD Goto Declaration"
-nmap gD <Action>(GotoDeclaration)
+nmap gD <Action>(GotoDeclarationOnly)
+
+let g:WhichKeyDesc_hover = "K Hover Documentation"
+nmap K <Action>(ShowHoverInfo)
 
 let g:WhichKeyDesc_signature_help = "gK Signature Help"
 nmap gK <Action>(ParameterInfo)

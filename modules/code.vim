@@ -17,17 +17,17 @@ nmap <leader>cR <Action>(RenameFile)
 if g:is_ide_rider | nmap <leader>cR <Action>(RiderRenameFile) | endif
 
 let g:WhichKeyDesc_format = "<leader>cf Format"
-nmap <leader>cf <Action>(Format)
-vmap <leader>cf <Action>(Format)
+nmap <leader>cf <Action>(ReformatCode)
+vmap <leader>cf <Action>(ReformatCode)
+
+let g:WhichKeyDesc_optimize_imports = "<leader>co Optimize Imports"
+nmap <leader>co <Action>(OptimizeImports)
 
 let g:WhichKeyDesc_diagnostics_line = "<leader>cd Line Diagnostics"
-nmap <leader>cd <Action>(ActivateProblemsViewToolWindow)
+nmap <leader>cd <Action>(ShowErrorDescription)
 
-let g:WhichKeyDesc_code_lsp_info = "<leader>cl Lsp Info"
-nmap <leader>cl :echo 'There is no equivalent mapping for Lsp Info.'<cr>
+let g:WhichKeyDesc_code_structure = "<leader>cl File Structure"
+nmap <leader>cl <Action>(FileStructurePopup)
 
-let g:WhichKeyDesc_code_lens = "<leader>cc Run Codelens"
-nmap <leader>cc :echo 'There is no equivalent mapping for Run Codelens.'<cr>
-
-let g:WhichKeyDesc_code_lens_refresh = "<leader>cC Refresh & Display Codelens"
-nmap <leader>cC :echo 'There is no equivalent mapping for Refresh & Display Codelens.'<cr>
+let g:WhichKeyDesc_code_complete = "<leader>cc Complete Statement"
+nmap <leader>cc <Action>(EditorCompleteStatement)

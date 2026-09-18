@@ -7,36 +7,101 @@
 Required plugins from the [JetBrains Marketplace](https://plugins.jetbrains.com):
 
 - [IdeaVim](https://github.com/JetBrains/ideavim) (>= 2.39.0, for `inccommand` support)
-- [Which-Key](https://github.com/TheBlob42/idea-which-key)
-- [EasyMotion](https://github.com/AlexPl292/IdeaVim-EasyMotion)
+- [Which Key Lazy](https://plugins.jetbrains.com/plugin/30446-which-key-lazy)
 
-Optional plugins from the [JetBrains Marketplace](https://plugins.jetbrains.com):
+The configuration uses IdeaVim's bundled Sneak extension, so EasyMotion and
+AceJump are not required. Type `s` followed by two characters to jump forward,
+or `S` followed by two characters to jump backward.
 
-- [LazyGit](https://github.com/ckob/lazygit-intellij-plugin)
+Which Key Lazy is configured through `~/.whichkey-lazy.json`. The popup waits
+450 ms before appearing; `set notimeout` keeps it visible until the mapping is
+completed or cancelled.
 
 ## Installation
 
-Clone the repository to `~/.lazy-idea`:
+Clone the repository to `~/.config/lazy-idea`:
 
 **Unix/Linux/macOS**
 
 ```bash
-git clone https://github.com/cufarvid/lazy-idea.git ~/.lazy-idea
+git clone https://github.com/SergoGansta777/lazy-idea.git ~/.config/lazy-idea
 ```
 
 **Windows (PowerShell)**
 
 ```powershell
-git clone https://github.com/cufarvid/lazy-idea.git "$HOME/.lazy-idea"
+git clone https://github.com/SergoGansta777/lazy-idea.git "$HOME/.config/lazy-idea"
 ```
 
-Then add the following line to your `~/.ideavimrc` (create it if it doesn't exist):
+Run the idempotent installer:
 
-```vim
-source ~/.lazy-idea/lazy-idea.vim
+```bash
+~/.config/lazy-idea/install.sh
 ```
 
-Any custom settings, plugins, or overrides you add after the `source` line will take precedence. Then restart your JetBrains IDE.
+It links the tracked IdeaVim entrypoint and Which Key Lazy configuration into
+your home directory. Existing files are moved to
+`~/.local/state/lazy-idea/backups/<timestamp>` before linking.
+
+Install IdeaVim and Which Key Lazy from the Marketplace, then restart the IDE.
+Future configuration changes only require a Git pull and `:source ~/.ideavimrc`.
+
+## Migration to a new computer
+
+```bash
+git clone https://github.com/SergoGansta777/lazy-idea.git ~/.config/lazy-idea
+~/.config/lazy-idea/install.sh
+```
+
+Then install the two required IDE plugins. JetBrains Settings Sync can restore
+the plugins automatically; the repository remains the source of truth for
+IdeaVim mappings and Which Key Lazy behavior.
+
+The original `cufarvid/lazy-idea` repository remains configured as `upstream`
+for selectively incorporating future improvements.
+
+## Maintenance
+
+Run the local compatibility check after updating a JetBrains IDE or changing
+mappings:
+
+```bash
+~/.config/lazy-idea/check.sh
+```
+
+It checks JSON syntax, duplicate mappings, required plugins, and every mapped
+JetBrains action against the action registries in the locally installed
+GoLand and RustRover versions. It includes both Git file history (`Space g f`)
+and JetBrains Local History (`Space g H`).
+
+Configure automatic formatting through
+`Settings → Tools → Actions on Save`. JetBrains exposes this as a setting,
+not as a stable cross-IDE action, so the configuration does not emulate a
+toggle keymap.
+
+To fetch the configured Git remote and report whether the current branch is
+ahead or behind its upstream, run:
+
+```bash
+~/.config/lazy-idea/check.sh --remote
+```
+
+### Which Key Lazy fork
+
+The maintained fork lives at
+[`SergoGansta777/which-key-lazy`](https://github.com/SergoGansta777/which-key-lazy).
+Its `fix/configurable-popup-behavior` branch implements the configured delay,
+row and column limits, and popup placement. Clone it to
+`~/.config/which-key-lazy`.
+
+To rebuild and install it into every local GoLand and RustRover version, set
+`JAVA_HOME` to JDK 21 and run:
+
+```bash
+~/.config/lazy-idea/scripts/install-which-key-lazy-fork.sh
+```
+
+Use `--no-build` to reinstall the most recent verified local archive.
 
 ## Development
 

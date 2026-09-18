@@ -89,6 +89,13 @@ nmap ]w <Action>(GotoNextError)
 let g:WhichKeyDesc_warning_prev = "[w Prev Warning"
 nmap [w <Action>(GotoPreviousError)
 
+" Git change/hunk navigation
+let g:WhichKeyDesc_hunk_next = "]h Next Git Hunk"
+nmap ]h <Action>(VcsShowNextChangeMarker)
+
+let g:WhichKeyDesc_hunk_prev = "[h Previous Git Hunk"
+nmap [h <Action>(VcsShowPrevChangeMarker)
+
 let g:WhichKeyDesc_todo_prev = "[t Previous Todo Comment"
 nmap [t ?\(TODO\|FIX\|HACK\|WARN\|PERF\|NOTE\|TEST\):<cr>
 

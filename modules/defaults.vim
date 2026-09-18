@@ -33,6 +33,11 @@ vmap <BS> <Action>(EditorUnSelectWord)
 " Additional Misc Keymaps
 " ========================================
 
+let g:WhichKeyDesc_save = "<C-s> Save All"
+nmap <C-s> <Action>(SaveAll)
+vmap <C-s> <Action>(SaveAll)
+imap <C-s> <Action>(SaveAll)
+
 let g:WhichKeyDesc_find_files = "<leader><space> Find Files (Root Dir)"
 nmap <leader><space> <Action>(GotoFile)
 
@@ -46,7 +51,7 @@ let g:WhichKeyDesc_command_history = "<leader>: Command History"
 nmap <leader>: :history<cr>
 
 let g:WhichKeyDesc_keywordprg = "<leader>K Keywordprg"
-nmap <leader>K :help<space><C-r><C-w><CR>
+nmap <leader>K <Action>(ShowHoverInfo)
 
 let g:WhichKeyDesc_lazy = "<leader>l Lazy"
 nmap <leader>l <Action>(WelcomeScreen.Plugins)
@@ -58,8 +63,8 @@ let g:WhichKeyDesc_leader_q = "<leader>q +quit"
 let g:WhichKeyDesc_quit_all = "<leader>qq Quit All"
 nmap <leader>qq <Action>(Exit)
 
-let g:WhichKeyDesc_explorer = "<leader>e Explorer NeoTree (Root Dir)"
-nmap <leader>e :NERDTreeToggle<cr>
+let g:WhichKeyDesc_explorer = "<leader>e Project Explorer"
+nmap <leader>e <Action>(ActivateProjectToolWindow)
 
-let g:WhichKeyDesc_explorer_cwd = "<leader>E Explorer NeoTree (cwd)"
-nmap <leader>E :NERDTreeFind<cr>
+let g:WhichKeyDesc_explorer_cwd = "<leader>E Reveal Current File"
+nmap <leader>E <Action>(SelectInProjectView)

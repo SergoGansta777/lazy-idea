@@ -17,6 +17,9 @@ nmap <leader>bD <Action>(CloseContent)
 let g:WhichKeyDesc_buffer_delete_others = "<leader>bo Delete Other Buffers"
 nmap <leader>bo <Action>(CloseAllEditorsButActive)
 
+let g:WhichKeyDesc_buffer_delete_clean = "<leader>bc Delete Unmodified Buffers"
+nmap <leader>bc <Action>(CloseAllUnmodifiedEditors)
+
 let g:WhichKeyDesc_buffer_left = "<leader>bl Delete Buffers to the Left"
 nmap <leader>bl <Action>(CloseAllToTheLeft)
 
@@ -29,5 +32,8 @@ nmap <leader>bP <Action>(CloseAllUnpinnedEditors)
 let g:WhichKeyDesc_buffer_right = "<leader>br Delete Buffers to the Right"
 nmap <leader>br <Action>(CloseAllToTheRight)
 
+let g:WhichKeyDesc_buffer_reopen = "<leader>bR Reopen Closed Buffer"
+nmap <leader>bR <Action>(ReopenClosedTab)
+
 let g:WhichKeyDesc_buffer_explorer = "<leader>be Buffer Explorer"
-nmap <leader>be :NERDTreeToggle<cr>
+nmap <leader>be <Action>(Switcher)

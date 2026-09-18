@@ -22,6 +22,13 @@ set hlsearch
 set incsearch
 " Preview substitutions live as you type (requires IdeaVim >= 2.39.0)
 set inccommand=nosplit
+
+" IdeaVim persists the last search across IDE restarts. Keep hlsearch useful
+" after an intentional search, but never restore stale highlights on a file.
+augroup lazy_idea_search
+  autocmd!
+  autocmd BufEnter * nohlsearch
+augroup END
 " Ignore case in search patterns
 set ignorecase
 " Override ignorecase if search pattern has uppercase
@@ -30,14 +37,23 @@ set smartcase
 set shiftround
 " Columns of context
 set sidescrolloff=8
-" Timeout for key sequences
-set timeoutlen=10000
+" Keep unfinished leader sequences active so Which-Key stays visible.
+" Its appearance delay is configured independently below.
 set notimeout
 set undolevels=10000
 " Disable line wrap
 set nowrap
 " Enable copy/paste to/from system keyboard
 set clipboard+=unnamedplus
+set clipboard+=ideaput
+
+" Prefer JetBrains' structural editing behavior where it is stronger.
+set ideajoin
+set ideamarks
+set idearefactormode=keep
+
+" Which Key Lazy reads its 300 ms popup delay and appearance settings from
+" ~/.whichkey-lazy.json. 'notimeout' above keeps the sequence active.
 
 " ========================================
 " Neovim Compatibility Settings
