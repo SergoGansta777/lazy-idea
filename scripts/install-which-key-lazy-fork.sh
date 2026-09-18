@@ -10,6 +10,14 @@ if test ! -x "$source_dir/gradlew"; then
   exit 1
 fi
 
+base_version=$(sed -n 's/^pluginVersion=//p' "$source_dir/gradle.properties" | head -n 1)
+if test -z "$base_version"; then
+  printf 'error: pluginVersion is missing from %s/gradle.properties\n' "$source_dir" >&2
+  exit 1
+fi
+local_version=${WHICH_KEY_LAZY_VERSION:-"$base_version-local"}
+archive="$source_dir/build/distributions/which-key-lazy-$local_version.zip"
+
 if test "${1:-}" != "--no-build"; then
   if test -z "${JAVA_HOME:-}" || test ! -x "$JAVA_HOME/bin/java"; then
     printf 'error: set JAVA_HOME to a JDK 21 installation before building\n' >&2
@@ -19,12 +27,11 @@ if test "${1:-}" != "--no-build"; then
     *'"21.'*) ;;
     *) printf 'error: Which Key Lazy currently builds with JDK 21\n' >&2; exit 1 ;;
   esac
-  (cd "$source_dir" && ./gradlew --no-daemon test buildPlugin)
+  (cd "$source_dir" && ./gradlew --no-daemon -PpluginVersion="$local_version" test buildPlugin)
 fi
 
-archive=$(ls -t "$source_dir"/build/distributions/which-key-lazy-*.zip 2>/dev/null | head -n 1)
-if test -z "$archive"; then
-  printf 'error: no built plugin archive found\n' >&2
+if test ! -f "$archive"; then
+  printf 'error: plugin archive not found: %s\n' "$archive" >&2
   exit 1
 fi
 

@@ -8,7 +8,7 @@ nmap <leader>gg <Action>(ActivateCommitToolWindow)
 let g:WhichKeyDesc_git_blame = "<leader>gb Annotate Line"
 nmap <leader>gb <Action>(Annotate)
 
-let g:WhichKeyDesc_git_hunks = "<leader>gh +changes"
+let g:WhichKeyDesc_git_hunks = "<leader>gh +Changes"
 let g:WhichKeyDesc_git_hunk_preview = "<leader>ghp Show Current Change"
 nmap <leader>ghp <Action>(VcsShowCurrentChangeMarker)
 

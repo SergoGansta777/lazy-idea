@@ -2,7 +2,7 @@
 " Search Keymaps (<leader>s)
 " ========================================
 
-let g:WhichKeyDesc_search_registers = "<leader>s\" Registers"
+let g:WhichKeyDesc_search_registers = '<leader>s" Registers'
 nmap <leader>s" :registers<cr>
 
 let g:WhichKeyDesc_search_buffer = "<leader>sb Switcher"
@@ -44,7 +44,7 @@ nmap <leader>sm :marks<cr>
 let g:WhichKeyDesc_search_man = "<leader>sM Quick Documentation"
 nmap <leader>sM <Action>(ShowHoverInfo)
 
-let g:WhichKeyDesc_search_notifications = "<leader>sn +notifications"
+let g:WhichKeyDesc_search_notifications = "<leader>sn +Notifications"
 let g:WhichKeyDesc_search_notifications_all = "<leader>sna All"
 nmap <leader>sna <Action>(ActivateNotificationsToolWindow)
 

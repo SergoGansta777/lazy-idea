@@ -15,6 +15,8 @@ ROOT = Path(__file__).resolve().parent.parent
 HOME = Path.home()
 ACTION_RE = re.compile(r"<Action>\(([^)]+)\)")
 MAP_RE = re.compile(r"^\s*([nvox]?(?:nore)?map)\s+(\S+)")
+DESCRIPTION_RE = re.compile(r'''^\s*let\s+g:WhichKeyDesc_\S+\s*=\s*(["'])(.*?)\1\s*$''')
+LEADER_MAP_RE = re.compile(r"^\s*(?:[nvox]?(?:nore)?map)\s+(<leader>\S+)\s+(.+)", re.IGNORECASE)
 # These actions are registered in code rather than plugin.xml resources.
 DYNAMIC_ACTIONS = {
     "ActivateNotificationsToolWindow",
@@ -85,9 +87,10 @@ def main() -> int:
     parser.add_argument("--remote", action="store_true", help="fetch origin before checking Git status")
     args = parser.parse_args()
     good = True
+    config: dict = {}
 
     try:
-        json.loads((ROOT / "config/.whichkey-lazy.json").read_text())
+        config = json.loads((ROOT / "config/.whichkey-lazy.json").read_text())
         ok("Which Key Lazy JSON is valid")
     except (OSError, json.JSONDecodeError) as error:
         fail(f"invalid Which Key Lazy JSON: {error}")
@@ -96,9 +99,21 @@ def main() -> int:
     vim_files = sorted(ROOT.glob("*.vim")) + sorted((ROOT / "modules").glob("*.vim"))
     actions: set[str] = set()
     mappings: dict[tuple[str, str], list[str]] = {}
+    descriptions: list[tuple[str, str]] = []
+    raw_leader_mappings: set[str] = set()
     for path in vim_files:
         for number, line in enumerate(path.read_text().splitlines(), 1):
             actions.update(ACTION_RE.findall(line))
+            description = DESCRIPTION_RE.match(line)
+            if description:
+                value = description.group(2)
+                _, separator, text = value.partition(" ")
+                if separator:
+                    descriptions.append((f"{path.name}:{number}", text))
+            leader_mapping = LEADER_MAP_RE.match(line)
+            if leader_mapping and "<action>" not in leader_mapping.group(2).lower():
+                suffix = leader_mapping.group(1)[len("<leader>"):].replace("<bar>", "|")
+                raw_leader_mappings.add(suffix)
             match = MAP_RE.match(line)
             if match:
                 mode = match.group(1)[0] if match.group(1)[0] in "nvox" else ""
@@ -110,6 +125,34 @@ def main() -> int:
         good = False
     else:
         ok(f"{len(mappings)} mappings have no mode/key collisions")
+
+    overrides = config.get("overrides", {})
+    for key, override in overrides.items():
+        if isinstance(override, dict) and isinstance(override.get("description"), str):
+            descriptions.append((f"config override {key}", override["description"]))
+    missing_descriptions = sorted(
+        key for key in raw_leader_mappings
+        if not isinstance(overrides.get(key), dict) or not overrides[key].get("description")
+    )
+    if missing_descriptions:
+        fail(f"leader mappings expose raw commands: {', '.join(missing_descriptions)}")
+        good = False
+    else:
+        ok("all non-action leader mappings have display descriptions")
+
+    invalid_descriptions = []
+    for location, text in descriptions:
+        visible = text.removeprefix("+")
+        first_letter = next((char for char in visible if char.isalpha()), "")
+        if first_letter and first_letter.islower():
+            invalid_descriptions.append(location)
+        if re.search(r"<(?:cr|esc|tab|bs|leader)>", text, re.IGNORECASE):
+            invalid_descriptions.append(location)
+    if invalid_descriptions:
+        fail(f"nonstandard display descriptions: {', '.join(sorted(set(invalid_descriptions)))}")
+        good = False
+    else:
+        ok(f"all {len(descriptions)} descriptions use consistent display text")
 
     apps = ide_apps()
     if not apps:

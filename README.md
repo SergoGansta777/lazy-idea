@@ -101,7 +101,8 @@ To rebuild and install it into every local GoLand and RustRover version, set
 ~/.config/lazy-idea/scripts/install-which-key-lazy-fork.sh
 ```
 
-Use `--no-build` to reinstall the most recent verified local archive.
+Use `--no-build` to reinstall the matching verified local archive. The default
+version is `<pluginVersion>-local`; set `WHICH_KEY_LAZY_VERSION` to override it.
 
 ## Development
 

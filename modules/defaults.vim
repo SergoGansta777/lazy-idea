@@ -59,7 +59,7 @@ nmap <leader>l <Action>(WelcomeScreen.Plugins)
 let g:WhichKeyDesc_changelog = "<leader>L What's New"
 nmap <leader>L <Action>(WhatsNewAction)
 
-let g:WhichKeyDesc_leader_q = "<leader>q +application"
+let g:WhichKeyDesc_leader_q = "<leader>q +Application"
 let g:WhichKeyDesc_quit_all = "<leader>qq Exit IDE"
 nmap <leader>qq <Action>(Exit)
 

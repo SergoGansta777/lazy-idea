@@ -6,7 +6,7 @@
 
 " Commentary - gcc and gc<action> mappings
 set commentary
-let g:WhichKeyDesc_comment = "gc +Toggle Comment"
+let g:WhichKeyDesc_comment = "gc +Comments"
 let g:WhichKeyDesc_comment_line = "gcc Toggle Comment Line"
 let g:WhichKeyDesc_comment_below = "gco Add Comment Below"
 nmap gco o<c-o>gcc
@@ -17,7 +17,7 @@ nmap gcO O<c-o>gcc
 " Surround - Emulate LazyVim mini.surround mappings
 set surround
 let g:surround_no_mappings = 1
-let g:WhichKeyDesc_surround = "gs +surround"
+let g:WhichKeyDesc_surround = "gs +Surround"
 let g:WhichKeyDesc_surround_add = "gsa Add Surrounding"
 nmap gsa <Plug>YSurround
 xmap gsa <Plug>VSurround
@@ -65,11 +65,11 @@ set classtextobj
 
 " Function-oriented aliases for Go/Rust and modern Neovim conventions.
 " Keep the native method-oriented am/im mappings available as well.
-let g:WhichKeyDesc_textobj_function_a = "af function"
+let g:WhichKeyDesc_textobj_function_a = "af Function"
 xmap af am
 omap af am
 
-let g:WhichKeyDesc_textobj_function_i = "if inner function"
+let g:WhichKeyDesc_textobj_function_i = "if Inner Function"
 xmap if im
 omap if im
 
@@ -100,23 +100,23 @@ xmap <C-p> <Plug>RemoveOccurrence
 set textobj-indent
 " Remap ai to behave like aI to match LazyVim behavior
 " (LazyVim's vai includes closing lines)
-let g:WhichKeyDesc_textobj_indent = "ai indent"
+let g:WhichKeyDesc_textobj_indent = "ai Indent"
 xmap ai <Plug>textobj-indent-aI
 omap ai <Plug>textobj-indent-aI
 
 " textobj-entire - Entire file text objects (ag, ig)
 set textobj-entire
-let g:WhichKeyDesc_textobj_a_entire = "ag entire file"
+let g:WhichKeyDesc_textobj_a_entire = "ag Entire File"
 xmap ag <Plug>textobj-entire-a
 omap ag <Plug>textobj-entire-a
 
-let g:WhichKeyDesc_textobj_i_entire = "ig entire file"
+let g:WhichKeyDesc_textobj_i_entire = "ig Entire File"
 xmap ig <Plug>textobj-entire-i
 omap ig <Plug>textobj-entire-i
 
 " mini-ai - Extended text objects for quotes and blocks
 set mini-ai
-let g:WhichKeyDesc_textobj_aq = "aq `\"' quote"
-let g:WhichKeyDesc_textobj_iq = "iq `\"' quote"
-let g:WhichKeyDesc_textobj_ab = "ab )]} block"
-let g:WhichKeyDesc_textobj_ib = "ib )]} block"
+let g:WhichKeyDesc_textobj_aq = "aq Any Quote"
+let g:WhichKeyDesc_textobj_iq = "iq Inner Quote"
+let g:WhichKeyDesc_textobj_ab = "ab Any Block"
+let g:WhichKeyDesc_textobj_ib = "ib Inner Block"
