@@ -6,22 +6,22 @@
 " Code Navigation
 " ========================================
 
-let g:WhichKeyDesc_goto_definition = "gd Goto Definition"
+let g:WhichKeyDesc_goto_definition = "gd Go to Definition"
 nmap gd <Action>(GotoDeclaration)
 
 let g:WhichKeyDesc_references = "gr References"
 nmap gr <Action>(FindUsages)
 
-let g:WhichKeyDesc_goto_implementation = "gI Goto Implementation"
+let g:WhichKeyDesc_goto_implementation = "gI Go to Implementation"
 nmap gI <Action>(GotoImplementation)
 
-let g:WhichKeyDesc_goto_type = "gy Goto T[y]pe Definition"
+let g:WhichKeyDesc_goto_type = "gy Go to Type Definition"
 nmap gy <Action>(GotoTypeDeclaration)
 
-let g:WhichKeyDesc_goto_declaration = "gD Goto Declaration"
+let g:WhichKeyDesc_goto_declaration = "gD Go to Declaration"
 nmap gD <Action>(GotoDeclarationOnly)
 
-let g:WhichKeyDesc_hover = "K Hover Documentation"
+let g:WhichKeyDesc_hover = "K Quick Documentation"
 nmap K <Action>(ShowHoverInfo)
 
 let g:WhichKeyDesc_signature_help = "gK Signature Help"

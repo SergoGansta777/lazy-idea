@@ -35,16 +35,16 @@ nmap <C-Right> <Action>(IncrementWindowWidth)
 " Buffer Navigation
 " ========================================
 
-let g:WhichKeyDesc_buffer_prev = "<S-h> Prev Buffer"
+let g:WhichKeyDesc_buffer_prev = "<S-h> Previous Editor Tab"
 nmap <S-h> <Action>(PreviousTab)
 
-let g:WhichKeyDesc_buffer_next = "<S-l> Next Buffer"
+let g:WhichKeyDesc_buffer_next = "<S-l> Next Editor Tab"
 nmap <S-l> <Action>(NextTab)
 
-let g:WhichKeyDesc_buffer_prev_alt = "[b Prev Buffer"
+let g:WhichKeyDesc_buffer_prev_alt = "[b Previous Editor Tab"
 nmap [b <Action>(PreviousTab)
 
-let g:WhichKeyDesc_buffer_next_alt = "]b Next Buffer"
+let g:WhichKeyDesc_buffer_next_alt = "]b Next Editor Tab"
 nmap ]b <Action>(NextTab)
 
 " ========================================
@@ -65,35 +65,35 @@ imap <A-k> <Esc><Action>(MoveLineUp)i
 " Jump Navigation
 " ========================================
 
-let g:WhichKeyDesc_quickfix_prev = "[q Previous Quickfix"
+let g:WhichKeyDesc_quickfix_prev = "[q Previous Problem"
 nmap [q <Action>(GotoPreviousError)
 
-let g:WhichKeyDesc_quickfix_next = "]q Next Quickfix"
+let g:WhichKeyDesc_quickfix_next = "]q Next Problem"
 nmap ]q <Action>(GotoNextError)
 
-let g:WhichKeyDesc_diagnostic_next = "]d Next Diagnostic"
+let g:WhichKeyDesc_diagnostic_next = "]d Next Problem"
 nmap ]d <Action>(GotoNextError)
 
-let g:WhichKeyDesc_diagnostic_prev = "[d Prev Diagnostic"
+let g:WhichKeyDesc_diagnostic_prev = "[d Previous Problem"
 nmap [d <Action>(GotoPreviousError)
 
-let g:WhichKeyDesc_error_next = "]e Next Error"
+let g:WhichKeyDesc_error_next = "]e Next Problem"
 nmap ]e <Action>(GotoNextError)
 
-let g:WhichKeyDesc_error_prev = "[e Prev Error"
+let g:WhichKeyDesc_error_prev = "[e Previous Problem"
 nmap [e <Action>(GotoPreviousError)
 
-let g:WhichKeyDesc_warning_next = "]w Next Warning"
+let g:WhichKeyDesc_warning_next = "]w Next Problem"
 nmap ]w <Action>(GotoNextError)
 
-let g:WhichKeyDesc_warning_prev = "[w Prev Warning"
+let g:WhichKeyDesc_warning_prev = "[w Previous Problem"
 nmap [w <Action>(GotoPreviousError)
 
 " Git change/hunk navigation
-let g:WhichKeyDesc_hunk_next = "]h Next Git Hunk"
+let g:WhichKeyDesc_hunk_next = "]h Next Change"
 nmap ]h <Action>(VcsShowNextChangeMarker)
 
-let g:WhichKeyDesc_hunk_prev = "[h Previous Git Hunk"
+let g:WhichKeyDesc_hunk_prev = "[h Previous Change"
 nmap [h <Action>(VcsShowPrevChangeMarker)
 
 let g:WhichKeyDesc_todo_prev = "[t Previous Todo Comment"
@@ -109,5 +109,5 @@ nmap ]t /\(TODO\|FIX\|HACK\|WARN\|PERF\|NOTE\|TEST\):<cr>
 let g:WhichKeyDesc_escape_clear = "<esc> Escape and Clear hlsearch"
 nmap <esc> :nohlsearch<CR>
 
-let g:WhichKeyDesc_terminal_ctrl = "<C-/> Terminal (Root Dir)"
+let g:WhichKeyDesc_terminal_ctrl = "<C-/> Terminal"
 nmap <C-/> <Action>(ActivateTerminalToolWindow)

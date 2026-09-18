@@ -6,5 +6,28 @@
     "sortGroupsFirst": true,
     "position": "bottom-right",
     "showIcons": true
+  },
+  "overrides": {
+    "g": { "icon": "git" },
+    "u": { "icon": "AllIcons.General.Settings" },
+    "w": { "icon": "windows" },
+    "x": { "icon": "diagnostics" },
+    "q": { "icon": "quit" },
+    "gh": { "icon": "git" },
+    "-": { "icon": "AllIcons.Actions.SplitHorizontally" },
+    "|": { "icon": "AllIcons.Actions.SplitVertically" },
+    "`": { "icon": "AllIcons.Actions.SwapPanels" },
+    ":": { "icon": "AllIcons.General.History" },
+    "bb": { "icon": "AllIcons.Actions.SwapPanels" },
+    "fc": { "icon": "AllIcons.General.Settings" },
+    "s\"": { "icon": "AllIcons.FileTypes.Text" },
+    "sc": { "icon": "AllIcons.General.History" },
+    "sk": { "icon": "AllIcons.General.Keyboard" },
+    "sm": { "icon": "AllIcons.General.Locate" },
+    "ur": { "icon": "AllIcons.Actions.Refresh" },
+    "us": { "icon": "AllIcons.Actions.Words" },
+    "uw": { "icon": "AllIcons.Actions.ToggleSoftWrap" },
+    "uL": { "icon": "AllIcons.Actions.Show" },
+    "ul": { "icon": "AllIcons.Actions.Show" }
   }
 }

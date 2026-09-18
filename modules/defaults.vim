@@ -38,32 +38,32 @@ nmap <C-s> <Action>(SaveAll)
 vmap <C-s> <Action>(SaveAll)
 imap <C-s> <Action>(SaveAll)
 
-let g:WhichKeyDesc_find_files = "<leader><space> Find Files (Root Dir)"
+let g:WhichKeyDesc_find_files = "<leader><space> Go to File"
 nmap <leader><space> <Action>(GotoFile)
 
-let g:WhichKeyDesc_buffers = "<leader>, Buffers"
+let g:WhichKeyDesc_buffers = "<leader>, Switcher"
 nmap <leader>, <Action>(Switcher)
 
-let g:WhichKeyDesc_grep = "<leader>/ Grep (Root Dir)"
+let g:WhichKeyDesc_grep = "<leader>/ Find in Files"
 nmap <leader>/ <Action>(FindInPath)
 
 let g:WhichKeyDesc_command_history = "<leader>: Command History"
 nmap <leader>: :history<cr>
 
-let g:WhichKeyDesc_keywordprg = "<leader>K Keywordprg"
+let g:WhichKeyDesc_keywordprg = "<leader>K Quick Documentation"
 nmap <leader>K <Action>(ShowHoverInfo)
 
-let g:WhichKeyDesc_lazy = "<leader>l Lazy"
+let g:WhichKeyDesc_lazy = "<leader>l Plugins"
 nmap <leader>l <Action>(WelcomeScreen.Plugins)
 
-let g:WhichKeyDesc_changelog = "<leader>L LazyVim Changelog"
+let g:WhichKeyDesc_changelog = "<leader>L What's New"
 nmap <leader>L <Action>(WhatsNewAction)
 
-let g:WhichKeyDesc_leader_q = "<leader>q +quit"
-let g:WhichKeyDesc_quit_all = "<leader>qq Quit All"
+let g:WhichKeyDesc_leader_q = "<leader>q +application"
+let g:WhichKeyDesc_quit_all = "<leader>qq Exit IDE"
 nmap <leader>qq <Action>(Exit)
 
-let g:WhichKeyDesc_explorer = "<leader>e Project Explorer"
+let g:WhichKeyDesc_explorer = "<leader>e Project Tool Window"
 nmap <leader>e <Action>(ActivateProjectToolWindow)
 
 let g:WhichKeyDesc_explorer_cwd = "<leader>E Reveal Current File"
