@@ -16,6 +16,3 @@ nmap <leader>wm <Action>(MaximizeEditorInSplit)
 
 let g:WhichKeyDesc_window_only = "<leader>wo Close Other Splits"
 nmap <leader>wo <Action>(UnsplitAll)
-
-let g:WhichKeyDesc_window_zen = "<leader>wz Toggle Zen Mode"
-nmap <leader>wz <Action>(ToggleZenMode)

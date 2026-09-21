@@ -25,7 +25,6 @@
     "sk": { "icon": "AllIcons.General.Keyboard", "description": "Vim Mappings" },
     "sm": { "icon": "AllIcons.General.Locate", "description": "Marks" },
     "ur": { "icon": "AllIcons.Actions.Refresh", "description": "Clear Search Highlight" },
-    "us": { "icon": "AllIcons.Actions.Words", "description": "Toggle Spelling" },
     "uw": { "icon": "AllIcons.Actions.ToggleSoftWrap", "description": "Toggle Line Wrap" },
     "uL": { "icon": "AllIcons.Actions.Show", "description": "Toggle Relative Numbers" },
     "ul": { "icon": "AllIcons.Actions.Show", "description": "Toggle Line Numbers" }

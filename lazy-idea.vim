@@ -47,8 +47,8 @@ source ~/.config/lazy-idea/modules/git.vim
 let g:WhichKeyDesc_leader_s = "<leader>s +Search"
 source ~/.config/lazy-idea/modules/search.vim
 
-let g:WhichKeyDesc_leader_t = "<leader>t +Run/Test"
-source ~/.config/lazy-idea/modules/test.vim
+let g:WhichKeyDesc_leader_r = "<leader>r +Run"
+source ~/.config/lazy-idea/modules/run.vim
 
 let g:WhichKeyDesc_leader_u = "<leader>u +View"
 source ~/.config/lazy-idea/modules/ui.vim

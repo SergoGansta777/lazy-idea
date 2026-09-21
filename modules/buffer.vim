@@ -11,9 +11,6 @@ nnoremap <leader>` <C-^>
 let g:WhichKeyDesc_buffer_delete = "<leader>bd Close Editor"
 nmap <leader>bd <Action>(CloseContent)
 
-let g:WhichKeyDesc_buffer_delete_window = "<leader>bD Close Editor"
-nmap <leader>bD <Action>(CloseContent)
-
 let g:WhichKeyDesc_buffer_delete_others = "<leader>bo Close Other Editors"
 nmap <leader>bo <Action>(CloseAllEditorsButActive)
 
@@ -34,6 +31,3 @@ nmap <leader>br <Action>(CloseAllToTheRight)
 
 let g:WhichKeyDesc_buffer_reopen = "<leader>bR Reopen Closed Tab"
 nmap <leader>bR <Action>(ReopenClosedTab)
-
-let g:WhichKeyDesc_buffer_explorer = "<leader>be Switcher"
-nmap <leader>be <Action>(Switcher)

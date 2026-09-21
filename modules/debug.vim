@@ -2,9 +2,6 @@
 " Debug Keymaps (<leader>d)
 " ========================================
 
-let g:WhichKeyDesc_debug_args = "<leader>da Select Run Configuration"
-nmap <leader>da <Action>(ChooseRunConfiguration)
-
 let g:WhichKeyDesc_debug_breakpoint = "<leader>db Toggle Breakpoint"
 nmap <leader>db <Action>(ToggleLineBreakpoint)
 
@@ -35,9 +32,6 @@ nmap <leader>dP <Action>(Pause)
 let g:WhichKeyDesc_debug_repl = "<leader>dr Debug Tool Window"
 nmap <leader>dr <Action>(ActivateDebugToolWindow)
 
-let g:WhichKeyDesc_debug_session = "<leader>ds Select Run Configuration"
-nmap <leader>ds <Action>(ChooseDebugConfiguration)
-
 let g:WhichKeyDesc_debug_terminate = "<leader>dt Stop Debugging"
 nmap <leader>dt <Action>(Stop)
 
@@ -47,6 +41,3 @@ nmap <leader>dw <Action>(ViewBreakpoints)
 let g:WhichKeyDesc_debug_eval = "<leader>de Evaluate Expression"
 nmap <leader>de <Action>(EvaluateExpression)
 vmap <leader>de <Action>(EvaluateExpression)
-
-let g:WhichKeyDesc_debug_ui = "<leader>du Debug Tool Window"
-nmap <leader>du <Action>(ActivateDebugToolWindow)

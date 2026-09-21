@@ -14,6 +14,7 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parent.parent
 HOME = Path.home()
 ACTION_RE = re.compile(r"<Action>\(([^)]+)\)")
+COLON_ACTION_RE = re.compile(r":action\s+([^\s<]+)", re.IGNORECASE)
 MAP_RE = re.compile(r"^\s*([nvox]?(?:nore)?map)\s+(\S+)")
 DESCRIPTION_RE = re.compile(r'''^\s*let\s+g:WhichKeyDesc_\S+\s*=\s*(["'])(.*?)\1\s*$''')
 LEADER_MAP_RE = re.compile(r"^\s*(?:[nvox]?(?:nore)?map)\s+(<leader>\S+)\s+(.+)", re.IGNORECASE)
@@ -103,7 +104,9 @@ def main() -> int:
     raw_leader_mappings: set[str] = set()
     for path in vim_files:
         for number, line in enumerate(path.read_text().splitlines(), 1):
-            actions.update(ACTION_RE.findall(line))
+            if not line.lstrip().startswith('"'):
+                actions.update(ACTION_RE.findall(line))
+                actions.update(COLON_ACTION_RE.findall(line))
             description = DESCRIPTION_RE.match(line)
             if description:
                 value = description.group(2)
@@ -111,7 +114,11 @@ def main() -> int:
                 if separator:
                     descriptions.append((f"{path.name}:{number}", text))
             leader_mapping = LEADER_MAP_RE.match(line)
-            if leader_mapping and "<action>" not in leader_mapping.group(2).lower():
+            if (
+                leader_mapping
+                and "<action>" not in leader_mapping.group(2).lower()
+                and not COLON_ACTION_RE.search(leader_mapping.group(2))
+            ):
                 suffix = leader_mapping.group(1)[len("<leader>"):].replace("<bar>", "|")
                 raw_leader_mappings.add(suffix)
             match = MAP_RE.match(line)

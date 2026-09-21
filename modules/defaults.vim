@@ -50,9 +50,6 @@ nmap <leader>/ <Action>(FindInPath)
 let g:WhichKeyDesc_command_history = "<leader>: Command History"
 nmap <leader>: :history<cr>
 
-let g:WhichKeyDesc_keywordprg = "<leader>K Quick Documentation"
-nmap <leader>K <Action>(ShowHoverInfo)
-
 let g:WhichKeyDesc_lazy = "<leader>l Plugins"
 nmap <leader>l <Action>(WelcomeScreen.Plugins)
 
