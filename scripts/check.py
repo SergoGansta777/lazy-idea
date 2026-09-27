@@ -176,11 +176,13 @@ def main() -> int:
             ok(f"all {len(relevant)} relevant actions exist in {app.stem}")
 
     plugin_roots = [HOME / "Library/Application Support/JetBrains" / f"{name}2026.2/plugins" for name in ("GoLand", "RustRover")]
+    required_plugins = ("IdeaVIM", "which-key-lazy", "acejump", "IdeaVim-EasyMotion")
     for root in plugin_roots:
-        if (root / "IdeaVIM").is_dir() and (root / "which-key-lazy").is_dir():
+        if all((root / plugin).is_dir() for plugin in required_plugins):
             ok(f"required plugins installed for {root.parent.name}")
         else:
-            fail(f"missing IdeaVIM or which-key-lazy under {root}")
+            missing = ", ".join(plugin for plugin in required_plugins if not (root / plugin).is_dir())
+            fail(f"missing plugins under {root}: {missing}")
             good = False
 
     good = run_git(args.remote) and good

@@ -28,11 +28,10 @@ nmap gsd <Plug>DSurround
 let g:WhichKeyDesc_surround_replace = "gsr Replace Surrounding"
 nmap gsr <Plug>CSurround
 
-" Sneak - bundled with IdeaVim and consistent in every JetBrains IDE.
-" Use s{char}{char}, S{char}{char}, then ;/, to repeat.
-set sneak
-let g:WhichKeyDesc_sneak = "s Sneak Forward"
-let g:WhichKeyDesc_sneak_back = "S Sneak Backward"
+set nosneak
+set easymotion
+let g:WhichKeyDesc_easymotion = "s Jump"
+map s <Plug>(easymotion-s2)
 
 " NERDTree - File Explorer (as a substitute for NeoTree)
 set NERDTree
