@@ -52,8 +52,7 @@ set which-key
 " matchit - Extended matching
 set matchit
 
-" highlightedyank - Highlights the yanked region
-set highlightedyank
+set nohighlightedyank
 
 " Navigate by indentation levels: [-/]- lesser, [+/]+ greater, [=/]= equal.
 set indentwise
